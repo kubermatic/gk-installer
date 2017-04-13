@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: gk-installer
+spec:
+  template:
+    metadata:
+      name: gk-installer
+    spec:
+      containers:
+      - name: gk-installer
+        image: kubermatic/gk-installer
+        volumeMounts:
+        - name: topology
+          mountPath: /etc/gk-deploy/
+      restartPolicy: Never
+      volumes:
+        - name: topology
+          configMap:
+            name: gk-install-topology
