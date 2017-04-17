@@ -22,4 +22,4 @@ RUN ["unzip","/tmp/v1.1.zip","-d","/opt/gluster-kubernetes/"]
 RUN ["ln","-s","/opt/gluster-kubernetes/gluster-kubernetes-1.1/deploy/gk-deploy","/usr/local/bin/gk-deploy"]
 
 # Set default command
-CMD ["gk-deploy","-g","-y","-v","-c","/usr/local/bin/kubelet","/etc/gk-deploy/topology.json"]
+CMD ["gk-deploy","--deploy-gluster","--yes","--verbose","--cli","kubectl","--templates_dir","/opt/gluster-kubernetes/gluster-kubernetes-1.1/deploy/kube-templates","/etc/gk-deploy/topology.json"]
