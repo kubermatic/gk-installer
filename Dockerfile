@@ -1,7 +1,7 @@
 FROM fedora:25
 
 # Install heketi-cli
-RUN ["/usr/bin/dnf","install","heketi-client","unzip","-y"]
+RUN ["/usr/bin/dnf","install","heketi-client","unzip","python","-y"]
 
 # Install kubectl
 ADD https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linux/amd64/kubectl /usr/local/bin/
